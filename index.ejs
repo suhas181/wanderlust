@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <% if (allListings.length === 0) { %>
+            <p>No listings available</p>
+        <% } else { %>
+            <% allListings.forEach(listing => { %>
+                <div class="col-md-3">
+                    <a href="/listings/<%= listing._id %>" style="text-decoration: none; color: inherit;">
+                        <div class="card" style="width: 18rem;">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image" style="height: 18rem"/>
+                            <div class="card-img-overlay">&#9829;</div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= listing.title %> <br/>
+                                    &#8377;<%= listing.price.toLocaleString("en-IN")%>/night
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</div>
